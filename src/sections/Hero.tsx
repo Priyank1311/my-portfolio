@@ -98,7 +98,7 @@ export function Hero() {
           <Button href="#projects" variant="primary">
             View Projects
           </Button>
-          <Button href="/Priyank_Resume.docx" variant="secondary" download>
+          <Button href="/Priyank_Bhardwaj.pdf" variant="secondary" download>
             Download Resume
           </Button>
         </div>
