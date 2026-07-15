@@ -65,7 +65,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         onMouseMove={handleMove}
         onMouseLeave={handleLeave}
         // Layout fix: force consistent card geometry and 10px radius to prevent visual overlap
-        className="gradient-border relative flex h-full flex-col overflow-hidden rounded-[10px] border border-stroke bg-surface/60 transition-all duration-300 ease-in-out will-change-transform hover:shadow-[0_16px_40px_hsl(var(--accent)/0.22)]"
+        className="gradient-border relative flex h-full flex-col overflow-hidden rounded-[10px] border border-stroke bg-surface/60 transition-all duration-300 ease-in-out will-change-transform hover:shadow-[0_8px_20px_hsl(var(--accent)/0.18)]"
       >
         <div className="relative h-44 overflow-hidden md:h-52">
           <ProjectVisual variant={project.variant} image={project.image} title={project.title} />
@@ -85,7 +85,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
           <h3 className="font-display text-xl italic text-text-primary md:text-2xl">{project.title}</h3>
           <p className="mt-2 text-sm leading-relaxed text-muted">{project.description}</p>
-          <p className="mt-3 text-xs font-semibold uppercase tracking-[0.16em] gradient-text">{project.metric}</p>
+          <p className="mt-3 text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+            {project.metric}
+          </p>
         </div>
       </div>
     </motion.article>

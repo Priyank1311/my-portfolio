@@ -38,7 +38,7 @@ export function Navbar() {
               key={link.href}
               href={link.href}
               className={cn(
-                'relative rounded-full px-4 py-2 text-xs font-medium tracking-wide text-muted transition-colors duration-300 hover:text-text-primary',
+                'relative rounded-full px-4 py-2 text-xs font-medium tracking-wide text-muted transition-colors duration-300 hover:text-text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-bg',
                 isActive && 'text-text-primary',
               )}
             >
@@ -52,31 +52,15 @@ export function Navbar() {
                   transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                 />
               )}
-              <span
-                className={cn(
-                  'relative z-10',
-                  isActive &&
-                    'bg-[length:200%_100%] bg-clip-text text-transparent',
-                )}
-                style={
-                  isActive
-                    ? {
-                        backgroundImage: 'var(--gradient-accent)',
-                        WebkitBackgroundClip: 'text',
-                      }
-                    : undefined
-                }
-              >
-                {link.label}
-              </span>
+              <span className="relative z-10">{link.label}</span>
             </a>
           )
         })}
         <a
           href="#contact"
-          className="gradient-border ml-1 rounded-full bg-surface/90 px-5 py-2.5 text-xs font-semibold text-text-primary transition-transform hover:scale-[1.02] hover:glow-accent"
+          className="gradient-border ml-1 rounded-full bg-surface/90 px-5 py-2.5 text-xs font-semibold text-text-primary transition-transform duration-300 ease-out hover:scale-[1.01] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
         >
-          Let&apos;s Build ↗
+          Let&apos;s build
         </a>
       </div>
     </motion.nav>

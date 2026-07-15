@@ -65,13 +65,6 @@ body {
   color: hsl(var(--text));
 }
 
-.gradient-text {
-  background: var(--gradient-accent);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
 .gradient-border {
   position: relative;
   background: hsl(var(--surface));

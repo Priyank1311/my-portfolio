@@ -15,27 +15,33 @@ export function heroEntrance(refs: {
   ctas?: HTMLElement | null
   scroll?: HTMLElement | null
 }) {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
 
   const items = [
-  refs.eyebrow,
-  refs.name,
-  refs.role,
-  refs.sentence,
-  refs.description,
-  refs.stats,
-  refs.ctas,
-  refs.scroll,
+    refs.eyebrow,
+    refs.name,
+    refs.role,
+    refs.sentence,
+    refs.description,
+    refs.stats,
+    refs.ctas,
+    refs.scroll,
   ].filter(Boolean) as HTMLElement[]
 
-  gsap.set(items, { opacity: 0, y: 48, filter: 'blur(12px)' })
+  if (reduceMotion) {
+    gsap.set(items, { opacity: 1, y: 0, filter: 'none' })
+    return tl
+  }
+
+  gsap.set(items, { opacity: 0, y: 36, filter: 'blur(10px)' })
 
   tl.to(items, {
     opacity: 1,
     y: 0,
     filter: 'blur(0px)',
     duration: 1,
-    stagger: 0.1,
+    stagger: 0.08,
   })
 
   return tl

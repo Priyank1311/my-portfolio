@@ -32,7 +32,7 @@ export function Contact() {
 
         <div className="mt-10">
           <Button href={`mailto:${EMAIL}`} variant="primary">
-            Get in Touch ↗
+            Get in Touch
           </Button>
         </div>
 
@@ -43,7 +43,7 @@ export function Contact() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm uppercase tracking-[0.2em] text-muted transition-colors hover:gradient-text"
+              className="text-sm uppercase tracking-[0.2em] text-muted transition-colors hover:text-text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
             >
               {link.label}
             </a>

@@ -22,9 +22,9 @@ export function Button({
   const { ref, onMouseMove, onMouseLeave } = useMagnetic(0.28)
 
   const base = cn(
-    'gradient-border relative inline-flex items-center justify-center gap-2 rounded-[10px] px-6 py-3 text-sm font-medium transition-all duration-300 ease-in-out will-change-transform hover:-translate-y-1 hover:shadow-[0_10px_24px_hsl(var(--accent)/0.25)]',
+    'gradient-border relative inline-flex items-center justify-center gap-2 rounded-[10px] px-6 py-3 text-sm font-medium transition-all duration-300 ease-out will-change-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-bg',
     variant === 'primary'
-      ? 'bg-surface/80 text-text-primary hover:glow-accent'
+      ? 'bg-surface/80 text-text-primary hover:shadow-[0_8px_18px_hsl(var(--accent)/0.18)]'
       : 'glass border border-white/10 text-text-primary hover:border-white/20',
     className,
   )

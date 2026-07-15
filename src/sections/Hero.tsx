@@ -4,8 +4,13 @@ import { HlsVideo } from '@/components/ui/HlsVideo'
 import { Button } from '@/components/ui/Button'
 import { ScrollIndicator } from '@/components/ScrollIndicator'
 import { RoleRotator } from '@/components/RoleRotator'
-import { CounterMetric } from '@/components/CounterMetric'
 import { heroEntrance } from '@/animations/gsap'
+
+const heroSignals = [
+  'Backend-heavy full-stack delivery',
+  'FastAPI, Django, React, PostgreSQL',
+  'Fintech, AI, and distributed systems',
+]
 
 export function Hero() {
   const eyebrowRef = useRef<HTMLParagraphElement>(null)
@@ -29,43 +34,44 @@ export function Hero() {
         ctas: ctasRef.current,
         scroll: scrollRef.current,
       })
-    }, 2900)
+    }, 1800)
     return () => clearTimeout(timer)
   }, [])
 
   return (
     <section
       id="home"
-      className="relative flex min-h-screen flex-col justify-end overflow-hidden pb-12 pt-32"
+      className="relative flex min-h-screen flex-col justify-end overflow-hidden pb-12 pt-28 md:pt-32"
     >
       <div className="absolute inset-0">
         <HlsVideo src={HLS_VIDEO_URL} />
-        <div className="absolute inset-0 bg-bg/70 backdrop-blur-[2px]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-bg/30 via-transparent to-bg" />
+        <div className="absolute inset-0 bg-bg/72 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-bg/35 via-transparent to-bg" />
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 md:px-8 lg:px-16">
         <p
           ref={eyebrowRef}
-          className="text-xs uppercase tracking-[0.3em] text-muted opacity-0"
+          className="max-w-xl text-sm leading-relaxed text-muted opacity-0 md:text-base"
         >
-          FULL STACK ENGINEER • AI • DISTRIBUTED SYSTEMS
+          Full-stack engineer focused on backend systems, product delivery, and the kind of
+          implementation detail that makes projects credible.
         </p>
 
         <h1
           ref={nameRef}
-          className="mt-6 font-display text-7xl italic leading-[0.9] text-text-primary opacity-0 md:text-8xl lg:text-9xl"
+          className="mt-6 max-w-4xl font-display text-6xl italic leading-[0.92] tracking-[-0.03em] text-text-primary opacity-0 text-balance sm:text-7xl md:text-8xl lg:text-9xl"
         >
           Priyank Bhardwaj
         </h1>
 
-        <div ref={roleRef} className="opacity-0">
+        <div ref={roleRef} className="mt-5 opacity-0">
           <RoleRotator />
         </div>
 
         <p
           ref={sentenceRef}
-          className="mt-6 text-lg text-text-primary/90 opacity-0 md:text-xl"
+          className="mt-6 max-w-2xl text-lg text-text-primary/90 opacity-0 md:text-xl"
         >
           Building scalable digital systems from India.
         </p>
@@ -75,26 +81,28 @@ export function Hero() {
           className="mt-4 max-w-2xl text-base leading-relaxed text-muted opacity-0 md:text-lg"
         >
           Full Stack Software Engineer specializing in Python, Django, FastAPI, PostgreSQL,
-          React.js, and scalable distributed systems. Passionate about engineering performant
-          fintech platforms, modern APIs, and AI-powered applications.
+          React.js, and scalable distributed systems. Focused on fintech platforms, modern APIs,
+          and AI-powered applications that ship cleanly and perform under load.
         </p>
 
         <div
           ref={statsRef}
-          className="mt-12 grid grid-cols-2 gap-8 border-y border-stroke/80 py-8 opacity-0 md:grid-cols-4"
+          className="mt-10 grid gap-3 opacity-0 sm:grid-cols-3"
         >
-          {HERO_STATS.map((stat) => (
-            <CounterMetric
-              key={stat.label}
-              value={stat.value}
-              suffix={stat.suffix}
-              label={stat.label}
-              decimals={'decimals' in stat ? stat.decimals : 0}
-            />
+          {heroSignals.map((signal) => (
+            <div
+              key={signal}
+              className="rounded-[12px] border border-stroke bg-surface/55 px-4 py-3 text-sm leading-relaxed text-text-primary/90"
+            >
+              {signal}
+            </div>
           ))}
         </div>
 
-        <div ref={ctasRef} className="mt-10 flex flex-wrap gap-4 opacity-0">
+        <div
+          ref={ctasRef}
+          className="mt-10 flex flex-wrap gap-4 opacity-0"
+        >
           <Button href="#projects" variant="primary">
             View Projects
           </Button>
@@ -102,6 +110,21 @@ export function Hero() {
             Download Resume
           </Button>
         </div>
+
+        <dl
+          className="mt-12 grid grid-cols-2 gap-4 border-t border-stroke/70 pt-8 text-sm text-muted md:grid-cols-4"
+          aria-label="Selected impact signals"
+        >
+          {HERO_STATS.map((stat) => (
+            <div key={stat.label} className="space-y-2">
+              <dt className="text-text-primary/85">{stat.label}</dt>
+              <dd className="text-xl font-medium tabular-nums text-text-primary md:text-2xl">
+                {stat.value}
+                {stat.suffix}
+              </dd>
+            </div>
+          ))}
+        </dl>
       </div>
 
       <div ref={scrollRef} className="relative z-10 mt-16 flex justify-center opacity-0">

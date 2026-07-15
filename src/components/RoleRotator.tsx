@@ -18,7 +18,7 @@ export function RoleRotator() {
       <AnimatePresence mode="wait">
         <motion.span
           key={HERO_ROLES[index]}
-          className="gradient-text block max-w-full pb-2 font-display text-3xl italic leading-[1.15] md:text-5xl lg:text-6xl"
+          className="block max-w-full pb-2 font-display text-3xl italic leading-[1.15] text-accent md:text-5xl lg:text-6xl"
           {...wordTransition}
         >
           {HERO_ROLES[index]}
